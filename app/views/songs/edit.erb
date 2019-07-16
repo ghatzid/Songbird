@@ -1,10 +1,9 @@
 #Edit Form
-
-<form action="/songs" method="post">
-
+<h1>You are currently editing: <%=@song.title%></h1>
+<form action="/songs/<%=@song.id%>" method="post">
+  <input type="hidden" name="name" value="PUT">
 <input type="text" name="title" placeholder="Enter song title" >
 <input type="number" name="release_year" placeholder="Enter song release year">
-<input type="submit" value="submit">
-
+  <input type="submit" value="Edit">
 </form>
 

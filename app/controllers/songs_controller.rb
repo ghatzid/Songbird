@@ -23,6 +23,23 @@ post "/songs" do
   redirect "/songs/#{song.id}"
 end
 
+#Edit Action
+post "/songs/:id" do
+  @song = Song.find(params[:id])
+  @song.title = params[:title]
+  @song.release_year = params[:release_year]
+  @song.save
+  redirect "/songs/#{@song.id}"
+end
+
+get "/songs/edit/:id" do 
+  @song = Song.find(params[:id])
+  erb :"songs/edit"
+end 
+
+
+
+
 
 
 
